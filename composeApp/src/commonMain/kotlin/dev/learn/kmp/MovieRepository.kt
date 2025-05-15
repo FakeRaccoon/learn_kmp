@@ -10,7 +10,7 @@ import kotlinx.serialization.json.Json
 
 
 class MovieRepository {
-    private val client = HttpClient() {
+    private val client = HttpClient {
         install(ContentNegotiation) {
             json(Json {
                 ignoreUnknownKeys = true
@@ -18,6 +18,7 @@ class MovieRepository {
             })
         }
     }
+
 
     suspend fun getMovies(): MovieResponse {
 

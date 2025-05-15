@@ -35,8 +35,6 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.android)
-            implementation(libs.coil.compose)
-            implementation(libs.coil.network.ktor)
             implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
@@ -46,10 +44,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.coil.compose)
 
             implementation(libs.voyager.navigator)
-
 
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.json)
@@ -57,6 +53,10 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
 
             implementation(libs.kotlinx.serialization.json)
+
+            implementation(libs.landscapist.coil3)
+
+            implementation(libs.material.icons.core)
 
             implementation(libs.ballast.core)
             implementation(libs.ballast.repository)

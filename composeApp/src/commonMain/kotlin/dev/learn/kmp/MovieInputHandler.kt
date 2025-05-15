@@ -64,6 +64,7 @@ class MovieInputHandler(
 
         is MovieContract.Inputs.FetchMovieDetail -> {
             try {
+
                 val response = repository.getMovie(input.movieId)
 
                 updateState { state ->

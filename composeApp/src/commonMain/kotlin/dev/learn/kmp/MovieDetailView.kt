@@ -1,6 +1,5 @@
 package dev.learn.kmp
 
-import MovieViewModel
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,32 +10,31 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.ui.graphics.Color
-import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import com.skydoves.landscapist.coil3.CoilImage
 
 data class MovieDetailView(
     private val movieId: Int,
+
 ) : Screen {
 
     @Composable
@@ -77,19 +75,10 @@ data class MovieDetailView(
                     actions = {
                         IconButton(
                             onClick = {
-//                                navigator.push(MovieCreateEditView(movie))
+                                TODO()
                             }
                         ) {
-                            Icon(Icons.Default.Edit, contentDescription = "Edit Movie")
-                        }
-
-                        IconButton(
-                            onClick = {
-//                                vm.removeMovie(movie!!)
-                                navigator.pop()
-                            }
-                        ) {
-                            Icon(Icons.Default.Delete, contentDescription = "Delete Movie")
+                            Icon(Icons.Default.Share, contentDescription = "Share Movie")
                         }
                     }
                 )
@@ -101,9 +90,8 @@ data class MovieDetailView(
                 verticalArrangement = Arrangement.spacedBy(12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                AsyncImage(
-                    model = "https://image.tmdb.org/t/p/original${movie!!.backdropPath}",
-                    contentDescription = "${movie!!.title} poster",
+                CoilImage(
+                    imageModel = { "https://image.tmdb.org/t/p/original${movie!!.backdropPath}" },
                     modifier = Modifier.fillMaxWidth()
                 )
 
